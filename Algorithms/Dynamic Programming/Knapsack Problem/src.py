@@ -6,8 +6,23 @@ from the problem faced by someone who is constrained by a fixed-size knapsack an
 valuable items.
 """
 
-def knapsack_solver(values, weights, n, capacity):
 
+def memoize(func):
+    cache = dict()
+
+    def memoized_func(*args):
+        if args in cache:
+            return cache[args]
+
+        result = func(*args)
+        cache[args] = result
+        return result
+
+    return memoized_func
+
+
+def knapsack_solver(values, weights, n, capacity):
+    @memoize
     def solver(rem_capacity, i=0):
         if i == n or rem_capacity - weights[i] < 0:
             return 0

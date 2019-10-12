@@ -20,8 +20,9 @@ valuable items.
 If you could carry not more than weight 10, find the maximum possible values to carry.
 
 Well the answer to that is,
+
 |Value|Weight|
-------|------|
+|------|------|
 |3|2|
 |5|6|
 |5|2|

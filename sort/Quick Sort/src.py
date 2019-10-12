@@ -1,8 +1,11 @@
 """
 ALGORITHM : Quick Sort
 WORST CASE => {
-    PERFORMANCE:  O(n log(n))
+    PERFORMANCE:  O(n^2))
     SPACE:        O(log(n))
+}
+AVERAGE CASE => {
+    PERFORMANCE:  O(n log(n))
 }
 """
 

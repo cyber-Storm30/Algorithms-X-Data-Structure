@@ -12,3 +12,15 @@ One has F_2 = 1. In some books, and particularly in old ones, F_0, the "0" is om
 The beginning of the sequence is thus:
 
 `0 1 1 2 3 5 8 13 21 34 55 89 144 ...`
+
+
+The function `fibonacci_vanilla(n)` is the most simple implementation, and `fibonacci(n)` is the same as that of its vanilla implementation but with `memoization` which speeds up this function by atleast **x1000**.
+
+### Inference of the performance Experiment
+```
+[In]:  print('Vanilla Fibonacci:', timeit.timeit('fibonacci_vanilla(30)', globals=globals(), number=1), 'seconds')
+       print('Memoized Fibonacci:', timeit.timeit('fibonacci(30)', globals=globals(), number=1), 'seconds')
+      
+[Out]: Vanilla Fibonacci: 4.2228784 seconds
+       Memoized Fibonacci: 0.0003140999999997618 seconds
+```

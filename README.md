@@ -1,4 +1,4 @@
-![Algorithms](resources/ds-algo.png)
+![Algorithms](resources/DS-algo.png)
 ![contributions welcome](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=0059b3&style=flat-square)
 
 ## All algorithms implemented in various languages for education.

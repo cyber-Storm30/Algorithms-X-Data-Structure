@@ -1,1 +1,1 @@
-![Algorithms]
+![Algorithms](/resources/algo.png)

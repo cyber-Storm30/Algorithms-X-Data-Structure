@@ -1,4 +1,4 @@
-class LinkedList:
+class SinglyLinkedList:
 
     class Node:
 
@@ -113,7 +113,7 @@ class LinkedList:
         
 
 if __name__ == '__main__':
-  linked_list = LinkedList([])
+  linked_list = SinglyLinkedList([])
   print(linked_list)
   linked_list.prepend(2)
   linked_list.append(7)

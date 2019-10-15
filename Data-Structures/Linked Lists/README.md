@@ -26,4 +26,4 @@ a linked list is a linear collection of data elements, whose order is not given 
    
     An XOR linked list is a type of data structure used in computer programming. It takes advantage of the bitwise XOR operation to decrease storage requirements for doubly linked lists.
 
-    ![XOR Linked List Visual](/resources/XOR-linked-list.png)
+    ![XOR Linked List Visual](/resources/xor-linked-list.png)

@@ -18,9 +18,9 @@ class Node:
         if self.right:
             self.right.display_tree()
         elif self.left:
-            print(None, end='-')
+            print(None, end=' ')
 
-        print(self, end='-')
+        print(self, end=' ')
 
 
 if __name__ == "__main__":
@@ -52,4 +52,3 @@ if __name__ == "__main__":
     """
 
     node1.display_tree()
-    print("ENDTREE")

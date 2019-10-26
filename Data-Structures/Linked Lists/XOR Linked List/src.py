@@ -108,12 +108,40 @@ class XORLinkedList:
             next_node = self.MEMORY.get(id(prev) ^ curr.both) if curr.both else None
             i += 1
 
+    def search(self, key):
+        head_node = self.MEMORY.get(self.headNodeAddr)
+        second_node = self.MEMORY.get(self.secondNodeAddr)
+
+        if head_node.value == key:
+            return True
+        if second_node is not None:
+            if second_node.value == key:
+                return True
+        else:
+            return False
+
+        prev = head_node
+        curr = second_node
+        next_node = self.MEMORY.get(id(prev) ^ curr.both) if curr.both else None
+
+        while next_node:
+            if next_node.value == key:
+                return True
+
+            prev = curr
+            curr = next_node
+            next_node = self.MEMORY.get(id(prev) ^ curr.both) if curr.both else None
+
+        return False
+
 
 if __name__ == "__main__":
-    xor_l = XORLinkedList([7, 0, 2])
+    xor_l = XORLinkedList([])
     xor_l.add(5)
     xor_l.add(8)
     xor_l.add(2)
     xor_l.add(1)
     print(xor_l)
     print("Element at index 2 : {}".format(xor_l.get(2)))
+    key = 5
+    print(f"Node [{key}] is present: {xor_l.search(key)}")

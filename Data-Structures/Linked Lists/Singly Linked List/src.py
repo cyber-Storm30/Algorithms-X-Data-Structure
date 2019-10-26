@@ -110,14 +110,25 @@ class SinglyLinkedList:
             working_node = working_node.nextNode
 
         return working_node
-        
+
+    def search(self, item):
+        working_node = self.headNode
+        while working_node:
+            if item == working_node.value:
+                return True
+            working_node = working_node.nextNode
+
+        return False
+
 
 if __name__ == '__main__':
-  linked_list = SinglyLinkedList([])
-  print(linked_list)
-  linked_list.prepend(2)
-  linked_list.append(7)
-  linked_list.insert(6, 0)
-  print(linked_list)
-  print("Size:", linked_list.size())
-  print("Node at Position 2:", linked_list.get_node_at_position(2))
+    linked_list = SinglyLinkedList([])
+    print(linked_list)
+    linked_list.prepend(2)
+    linked_list.append(7)
+    linked_list.insert(6, 0)
+    print(linked_list)
+    print("Size:", linked_list.size())
+    print("Node at Position 2:", linked_list.get_node_at_position(2))
+    key = 2
+    print(f"Node [{key}] is present: {linked_list.search(key)}")

@@ -10,6 +10,26 @@ class BinarySearchTree:
         def __repr__(self):
             return f"[{self.value}]"
 
+        def get_successor_value(self, pop=False):
+            if self.right is None:
+                return None
+
+            successor_value = self.right.value
+            working_node = self.right
+            parent_node = self
+            while working_node.left:
+                parent_node = working_node
+                working_node = working_node.left
+                successor_value = working_node.value
+
+            if pop:
+                if parent_node is self:
+                    parent_node.right = None
+                else:
+                    parent_node.left = None
+
+            return successor_value
+
     tree = None
 
     def __init__(self, iterable):
@@ -79,9 +99,45 @@ class BinarySearchTree:
         return False
 
     def delete(self, value):
-        pass
+        parent_node = None
+        working_node = self.tree
+
+        while working_node:
+            if working_node.value == value:
+                break
+
+            elif value < working_node.value:
+                parent_node = working_node
+                working_node = working_node.left
+            else:
+                parent_node = working_node
+                working_node = working_node.right
+
+        if working_node is None:
+            raise Exception("Couldn't find element to be deleted.")
+
+        if working_node.left is None and working_node.right is None:  # Case: 1 (NO CHILD NODES)
+            if parent_node.left == working_node:
+                parent_node.left = None
+            else:
+                parent_node.right = None
+        elif working_node.left or working_node.right:  # Case: 2 (ONE CHILD NODE)
+            if parent_node.left == working_node:
+                if working_node.left:
+                    parent_node.left = working_node.left
+                else:
+                    parent_node.left = working_node.right
+            else:
+                if working_node.left:
+                    parent_node.right = working_node.left
+                else:
+                    parent_node.right = working_node.right
+        else:  # Case: 3 (TWO CHILD NODES)
+            successor_val = working_node.get_successor_value(pop=True)
+            working_node.value = successor_val
 
 
 if __name__ == '__main__':
     BST = BinarySearchTree([4, 2, 6, 1, 0, 3, 7])
+    BST.delete(2)
     print(BST, BST.search(7))

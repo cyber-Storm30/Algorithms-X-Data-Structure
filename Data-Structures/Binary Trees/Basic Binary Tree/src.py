@@ -34,29 +34,6 @@ class Node:
 
         self.copy_node(new_root)
 
-    def get_successor_value(self, pop=False):
-        if self.right is None:
-            return None
-
-        successor_value = self.right.value
-        working_node = self.right
-        parent_node = self
-        while working_node.left:
-            parent_node = working_node
-            working_node = working_node.left
-            successor_value = working_node.value
-
-        if pop:
-            if parent_node is self:
-                parent_node.right = None
-            else:
-                parent_node.left = None
-
-        return successor_value
-
-    def remove_node(self):
-        self.value = self.get_successor_value(pop=True)
-
     def in_order_display_tree(self):  # In Order traversal of the tree
         if self is None:
             print(None)
@@ -118,7 +95,5 @@ if __name__ == "__main__":
        1    3      7
     
     """
-
-    node1.left.remove_node()
 
     node1.in_order_display_tree()
